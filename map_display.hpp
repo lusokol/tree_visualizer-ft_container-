@@ -4,15 +4,10 @@
 
 #define __NODE node // name of your strucure/class which contain your node
 #define __VALUE value // name of your value variable in your structure/class
-#define __SIZE 10 // size between nodes (only for display)
+#define __SIZE 5 // size between nodes (only for display)
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-#if __SIZE < 8
-	#define __DISPLAY 8
-#else
-	#define __DISPLAY __SIZE
-#endif
 
 private:
 
@@ -53,7 +48,7 @@ bool search_v(int level) {
 void aff_chars(std::string a, std::string b, int size = -1) {
 	size = (size == -1) ? a.size() : size;
 	std::cout << a;
-	for (int i = __DISPLAY; i - size > 0; i--)
+	for (int i = __SIZE; i - size > 0; i--)
 				std::cout << b;
 }
 
@@ -84,13 +79,13 @@ void print_tree(__NODE *ptr, int level = 0, bool is_right = 0)
 			else
 					aff_chars("╰", "─", 1);
 		}
-		if (ptr->left && count_btw_p(ptr->left, is_right) > 0) {
+		if (ptr->left && count_btw_p(ptr->left, 0) > 0) {
 			std::vector<int> tmp;
 			tmp.push_back(level + 1);
-			tmp.push_back(count_btw_p(ptr->left, is_right));
+			tmp.push_back(count_btw_p(ptr->left, 0));
 			aff.push_back(tmp);
 		}
-		std::cout << ptr->__VALUE;
+		std::cout << ptr->__VALUE ;
 		print_tree(ptr->left, level + 1, 0);
 	}
 }
