@@ -27,8 +27,8 @@ int count_from_node(__NODE *ptr, int count = 0) {
 	return count;
 }
 
-int count_btw_p(__NODE *ptr) {
-	if (ptr->parent->right == ptr) {
+int count_btw_p(__NODE *ptr, bool is_right) {
+	if (is_right) {
 		return count_from_node(ptr->left);		
 	}
 	else {
@@ -73,10 +73,10 @@ void print_tree(__NODE *ptr, int level = 0, bool is_right = 0)
 				aff_chars(" ", " ");
 		}
 		if (ptr != root) {
-			if (is_right && count_btw_p(ptr) > 0) {
+			if (is_right && count_btw_p(ptr, is_right) > 0) {
 				std::vector<int> tmp;
 				tmp.push_back(level);
-				tmp.push_back(count_btw_p(ptr));
+				tmp.push_back(count_btw_p(ptr, is_right));
 				aff.push_back(tmp);
 			}
 			if (is_right)
@@ -84,10 +84,10 @@ void print_tree(__NODE *ptr, int level = 0, bool is_right = 0)
 			else
 					aff_chars("╰", "─", 1);
 		}
-		if (ptr->left && count_btw_p(ptr->left) > 0) {
+		if (ptr->left && count_btw_p(ptr->left, is_right) > 0) {
 			std::vector<int> tmp;
 			tmp.push_back(level + 1);
-			tmp.push_back(count_btw_p(ptr->left));
+			tmp.push_back(count_btw_p(ptr->left, is_right));
 			aff.push_back(tmp);
 		}
 		std::cout << ptr->__VALUE;
