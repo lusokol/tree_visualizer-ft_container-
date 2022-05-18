@@ -59,12 +59,12 @@ void aff_chars(std::string a, std::string b, int size = -1) {
 
 public:
 
-void aff_tree(__NODE *ptr, int level = 0, bool is_right = 0)
+void print_tree(__NODE *ptr, int level = 0, bool is_right = 0)
 {
 	int i;
 	if (ptr != NULL)
 	{
-		aff_tree(ptr->right, level + 1, 1);
+		print_tree(ptr->right, level + 1, 1);
 		std::cout << std::endl;
 		for (i = 1; i < level && ptr != root; i++) {
 			if (search_v(i))
@@ -91,6 +91,6 @@ void aff_tree(__NODE *ptr, int level = 0, bool is_right = 0)
 			aff.push_back(tmp);
 		}
 		std::cout << ptr->__VALUE;
-		aff_tree(ptr->left, level + 1, 0);
+		print_tree(ptr->left, level + 1, 0);
 	}
 }
