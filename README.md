@@ -7,4 +7,5 @@ You just have to INCLUDE this file INSIDE your map class
  - a structure or class for your nodes which contain
    - a value
    - a bool variable for the color (for RBT)
+
 ![unknown](https://user-images.githubusercontent.com/29866293/169396592-9b670a4f-6811-4df0-83de-7d006be1242a.png)
