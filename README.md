@@ -8,4 +8,4 @@ You just have to INCLUDE this file INSIDE your map class
    - a value
    - a bool variable for the color (for RBT)
 
-![unknown](https://user-images.githubusercontent.com/29866293/169396592-9b670a4f-6811-4df0-83de-7d006be1242a.png)
+![BST](https://user-images.githubusercontent.com/29866293/169396797-9702c0af-b36e-4de1-b850-032e329bf348.png)
