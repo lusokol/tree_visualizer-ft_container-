@@ -5,12 +5,12 @@
 
 // You can change those define
 
-# define __NODE		node	 // name of your strucure/class which contain your node
-# define __VALUE	value	 // name of your value variable in your structure/class
+# define __NODE		_Node	 // name of your strucure/class which contain your node
+# define __VALUE	data	 // name of your value variable in your structure/class
 # define __SIZE		5		 // size between nodes (only for display)
-# define __ROOT		root	 // name of your tree's root variable
-# define __IS_BLACK	is_black // name of the bool variable for the color of nodes
-# define __NIL		nil		 // name of your NULL pointer
+# define __ROOT		_header.parent	 // name of your tree's root variable
+# define __IS_BLACK	color // name of the bool variable for the color of nodes
+# define __NIL		0		 // name of your NULL pointer
 # define __RIGHT	right	 // name of the right child of your nodes
 # define __LEFT		left	 // name of the left child of your nodes
 
@@ -97,9 +97,9 @@ void print_tree(__NODE *ptr, int level = 0, bool is_right = 0)
 			aff.push_back(tmp);
 		}
 		if (ptr->__IS_BLACK)
-			std::cout << __BLACK << ptr->__VALUE << __STOP;
+			std::cout << __BLACK << *ptr->__VALUE << __STOP;
 		else
-			std::cout  << __RED << ptr->__VALUE << __STOP;
+			std::cout  << __RED << *ptr->__VALUE << __STOP;
 		print_tree(ptr->__LEFT, level + 1, 0);
 	}
 }
